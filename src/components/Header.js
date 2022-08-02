@@ -61,4 +61,7 @@ class Header extends React.Component {
   }
 }
 
+// <h1>Search</h1>
+//         <Header />
+
 export default Header;
