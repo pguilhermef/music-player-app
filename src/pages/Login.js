@@ -52,7 +52,7 @@ class Login extends React.Component {
                 Usuário
                 <input
                   id="login-name-input"
-                  placeholder="Rajadinha123"
+                  placeholder="@criador_de_bugs123"
                   data-testid="login-name-input"
                   onChange={ this.verifyChararcters }
                 />
