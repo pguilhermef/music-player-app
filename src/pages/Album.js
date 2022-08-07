@@ -1,62 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AlbumMusics from '../components/MusicCard';
+import MusicCard from '../components/MusicCard';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
+import Loading from '../components/Loading';
 
 class Album extends React.Component {
   constructor() {
     super();
     this.state = {
       albumMusics: [],
-      albumName: '',
-      albumArtist: '',
-      albumNamePhoto: '',
+      albumInfos: '',
+      loadingPage: true,
     };
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const apiMusics = await getMusics(id);
-    const albumName = apiMusics[0].collectionName;
-    const albumArtist = apiMusics[0].artistName;
-    const albumNamePhoto = apiMusics[0].artworkUrl100;
+    const resultOfMusics = apiMusics.slice(1);
+    const resultOfInfos = apiMusics[0];
 
     this.setState({
-      albumMusics: apiMusics,
-      albumName,
-      albumArtist,
-      albumNamePhoto,
-    });
+      albumMusics: resultOfMusics,
+      albumInfos: resultOfInfos,
+    }, () => this.setState({ loadingPage: false }));
   }
 
   render() {
     const {
       albumMusics,
-      albumName,
-      albumArtist,
-      albumNamePhoto,
+      albumInfos: {
+        artistName,
+        collectionName,
+        artworkUrl100,
+      },
+      loadingPage,
     } = this.state;
 
     return (
-      <section data-testid="page-album">
-        <h1>Album</h1>
+      <div data-testid="page-album">
         <Header />
-        <div>
-          <img src={ albumNamePhoto } alt={ albumName } />
-          <p
-            data-testid="artist-name"
-          >
-            {albumArtist}
-          </p>
-          <p
-            data-testid="album-name"
-          >
-            {albumName}
-          </p>
-          <AlbumMusics musics={ albumMusics } />
-        </div>
-      </section>
+        {loadingPage ? <Loading /> : (
+          <div>
+            <img src={ artworkUrl100 } alt={ collectionName } />
+            <h2 data-testid="artist-name">{artistName}</h2>
+            <h3 data-testid="album-name">{collectionName}</h3>
+            <div>
+              {albumMusics.map(({ trackId, trackName, previewUrl }, index) => (
+                <div key={ trackId }>
+                  <MusicCard
+                    trackName={ trackName }
+                    previewUrl={ previewUrl }
+                    trackId={ trackId }
+                    albumMusics={ albumMusics }
+                    index={ index }
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     );
   }
 }
