@@ -14,8 +14,8 @@ class MusicCard extends Component {
 
   async componentDidMount() {
     const { trackId } = this.props;
-    const getList = await getFavoriteSongs();
-    const isChecked = getList.some((music) => music.trackId === trackId);
+    const listOfFavMusics = await getFavoriteSongs();
+    const isChecked = listOfFavMusics.some((music) => music.trackId === trackId);
     this.setState({ loading: true, isChecked }, () => this.setState({ loading: false }));
   }
 
