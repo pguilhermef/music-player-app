@@ -13,7 +13,6 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <p>TrybeTunes</p>
           <Switch>
             <Route
               exact

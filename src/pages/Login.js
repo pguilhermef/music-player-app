@@ -43,32 +43,51 @@ class Login extends React.Component {
     } = this.state;
 
     return (
-      <section data-testid="page-login">
-        { loadingPage ? <Loading />
-          : (
-            <>
-              <h1>Login</h1>
-              <label htmlFor="login-name-input">
-                Usuário
-                <input
-                  id="login-name-input"
-                  placeholder="@criador_de_bugs123"
-                  data-testid="login-name-input"
-                  onChange={ this.verifyChararcters }
-                />
-              </label>
-              <button
-                type="submit"
-                data-testid="login-submit-button"
-                disabled={ buttonIsDisabled }
-                onClick={ this.submitButton }
-              >
-                Entrar
-              </button>
+      <div
+        style={ { height: '100vh', width: '100%' } }
+        className="row justify-content-center align-items-center login-wallpaper"
+      >
+        <section
+          className="container
+          align-content-center col-10 col-md-6 col-lg-4 rounded-3 p-4 shadow bg-light"
+          data-testid="page-login"
+        >
+          { loadingPage ? <Loading />
+            : (
+              <>
+                <span className="fs-3 title">Login</span>
+                <form className="my-4">
+                  <div className="input-group mb-3">
+                    <span
+                      className="input-group-text username"
+                    >
+                      <i className="far fa-user-circle fa-lg" />
+                    </span>
+                    <input
+                      name="userName"
+                      className="form-control input"
+                      id="login-name-input"
+                      placeholder="Nome"
+                      data-testid="login-name-input"
+                      onChange={ this.verifyChararcters }
+                    />
 
-            </>
-          )}
-      </section>
+                  </div>
+                </form>
+                <button
+                  type="submit"
+                  className="btn btn-dark submit mt-2"
+                  data-testid="login-submit-button"
+                  disabled={ buttonIsDisabled }
+                  onClick={ this.submitButton }
+                >
+                  Entrar
+                </button>
+
+              </>
+            )}
+        </section>
+      </div>
     );
   }
 }
