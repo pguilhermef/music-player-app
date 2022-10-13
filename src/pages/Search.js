@@ -58,44 +58,57 @@ class Search extends React.Component {
     } = this.state;
 
     return (
-      <div data-testid="page-search">
-        <h1>Search</h1>
-        <Header />
+      <div
+        style={ { minHeight: '100vh', width: '100%' } }
+        className="row justify-content-center align-items-center search-wallpaper"
+      >
+        <section
+          className="container
+          align-content-center col-10 col-md-6 col-lg-5 rounded-3 p-4 shadow bg-light"
+          data-testid="page-search"
+        >
+          <span className="fs-3 title">Search</span>
+          <Header />
+          <form className="my-4">
+            <div className="input-group mb-3">
+              <span
+                className="input-group-text username"
+              >
+                {/* <i className="fa-duotone fa-magnifying-glass"></i> */}
+              </span>
+              <input
+                id="search-input"
+                className="form-control input"
+                data-testid="search-artist-input"
+                placeholder="Ariana Grande"
+                onChange={ this.verifyChararcters }
+                value={ searchInput }
+              />
+            </div>
+            <button
+              type="submit"
+              data-testid="search-artist-button"
+              className="btn btn-dark submit mt-2"
+              disabled={ buttonIsDisabled }
+              onClick={ this.clickButton }
+            >
+              Pesquisar
+            </button>
+          </form>
 
-        <form>
-          <label
-            htmlFor="search-input"
-          >
-            <input
-              id="search-input"
-              data-testid="search-artist-input"
-              onChange={ this.verifyChararcters }
-              value={ searchInput }
-            />
-          </label>
-
-          <button
-            type="submit"
-            data-testid="search-artist-button"
-            disabled={ buttonIsDisabled }
-            onClick={ this.clickButton }
-          >
-            Pesquisar
-          </button>
-        </form>
-
-        { loadingPage ? <Loading /> : (
-          <section>
-            {activateAlbuns
-              ? (
-                <ArtistAlbuns
-                  artist={ artist }
-                  albuns={ albuns }
-                />
-              )
-              : <p>Pesquise um album ou artista!</p>}
-          </section>
-        ) }
+          { loadingPage ? <Loading /> : (
+            <section>
+              {activateAlbuns
+                ? (
+                  <ArtistAlbuns
+                    artist={ artist }
+                    albuns={ albuns }
+                  />
+                )
+                : <p>Pesquise um album ou artista!</p>}
+            </section>
+          ) }
+        </section>
       </div>
     );
   }

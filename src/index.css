@@ -17,3 +17,14 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.login-wallpaper {
+  background-image: url('./wallpapers/login-trybetunes-wallpaper.jpeg');
+  background-size: 100%;
+}
+
+.search-wallpaper {
+  background-image: url('./wallpapers/search-trybetunes-wallpaper.jpg');
+  background-size: 100%;
+  /* background-color: brown; */
+}
