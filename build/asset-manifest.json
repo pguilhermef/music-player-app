@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pguilhermef/music-player-app/static/css/main.8d3cdc0b.css",
+    "main.js": "/pguilhermef/music-player-app/static/js/main.3e13c2c5.js",
+    "static/media/login-trybetunes-wallpaper.jpeg": "/pguilhermef/music-player-app/static/media/login-trybetunes-wallpaper.47f6ca7e4ac2516c407f.jpeg",
+    "static/media/search-trybetunes-wallpaper.jpg": "/pguilhermef/music-player-app/static/media/search-trybetunes-wallpaper.4b735ad5ea0d2fbe3e7b.jpg",
+    "index.html": "/pguilhermef/music-player-app/index.html",
+    "main.8d3cdc0b.css.map": "/pguilhermef/music-player-app/static/css/main.8d3cdc0b.css.map",
+    "main.3e13c2c5.js.map": "/pguilhermef/music-player-app/static/js/main.3e13c2c5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d3cdc0b.css",
+    "static/js/main.3e13c2c5.js"
+  ]
+}

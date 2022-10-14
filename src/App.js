@@ -11,7 +11,7 @@ import Search from './pages/Search';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/music-player-app">
         <div>
           <Switch>
             <Route
