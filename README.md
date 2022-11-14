@@ -76,3 +76,10 @@ Abaixo estão códigos que estão dentro do projeto mas a autoria é da Trybe, j
   **Atenção:** caso não encontre nenhuma informação, a API retornará um array vazio.
   </details>
 </details>
+
+** Futuros pontos de melhoria: **
+
+- Usuário editável
+- Estilização completa do projeto (atualmente só está estilizado a área de login e busca)
+- Recomendação de artistas
+- Publicar no github pages
